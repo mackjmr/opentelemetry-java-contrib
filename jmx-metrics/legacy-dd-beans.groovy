@@ -1,4 +1,5 @@
-// This is if we decide to add support for older versions of mbeans.
+// This is if we decide to add support for older versions of mbeans. These will need to be added to
+// kafka.groovy, kafka-producer.groovy and kafka-consumer.groovy if we choose to support.
 
 // kafka.server
 def purgatorySize = otel.mbean("kafka.server:type=ProducerRequestPurgatory,name=PurgatorySize")
