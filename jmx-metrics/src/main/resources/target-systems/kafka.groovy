@@ -186,10 +186,10 @@ def requestQueueSize = otel.mbean("kafka.network:type=RequestChannel,name=Reques
 otel.instrument(requestQueueSize, "kafka.request.queue", "size of the request queue",
         "{requests}", "Value", otel.&longValueCallback)
 
-// def logFlushRate = otel.mbean("kafka.log:type=LogFlushStats,name=LogFlushRateAndTimeMs")
-// otel.instrument(logFlushRate, "kafka.logs.flush.time.count", "log flush count",
-//         "ms", "Count", otel.&longCounterCallback)
-// otel.instrument(logFlushRate, "kafka.logs.flush.time.median", "log flush time - 50th percentile",
-//         "ms", "50thPercentile", otel.&doubleValueCallback)
-// otel.instrument(logFlushRate, "kafka.logs.flush.time.99p", "log flush time - 99th percentile",
-//         "ms", "99thPercentile", otel.&doubleValueCallback)
+def logFlushRate = otel.mbean("kafka.log:type=LogFlushStats,name=LogFlushRateAndTimeMs")
+otel.instrument(logFlushRate, "kafka.logs.flush.time.count", "log flush count",
+        "ms", "Count", otel.&longCounterCallback)
+otel.instrument(logFlushRate, "kafka.logs.flush.time.median", "log flush time - 50th percentile",
+        "ms", "50thPercentile", otel.&doubleValueCallback)
+otel.instrument(logFlushRate, "kafka.logs.flush.time.99p", "log flush time - 99th percentile",
+        "ms", "99thPercentile", otel.&doubleValueCallback)
